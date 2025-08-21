@@ -8,9 +8,9 @@ City Data:
 
 Cities and their attributes are stored in a CSV file.
 Attributes (for MVP) include:
-Average temperature [bucketed: Freezing(<0C°)/Cold(0C°-10C°)/Cool(10C°-18C°)/Warm(18C°-24C°)/Hot(24C°-30C°)/Unbearable(>30C°)]
-Rainfall [Arid(<250mm)/Dry(250mm-500mm)/Moderate(500mm-1000mm)/Rainy(1000mm-2000mm)/Very wet(2000mm>)]
-Cloudiness [Misty(0-10%)/Very Cloudy(10-20%)/Mostly Cloudy(20-40%)/Balanced(40-60%)/Mostly Clear(60-80%)/Very Clear(>80%)]
+Average temperature [bucketed: Freezing(<0C°)/Cold(0C°-10C°)/Cool(10C°-18C°)/Warm(18C°-24C°)/Hot(24C°>)]
+Rainfall [Arid(<250mm)/Dry(250mm-500mm)/Moderate(500mm-1000mm)/Wet(1000mm-2000mm)/Very wet(2000mm>)]
+Cloudiness [Very Cloudy(0-20%)//Mostly Cloudy(20-40%)/Balanced(40-60%)/Mostly Clear(60-80%)/Very Clear(>80%)]
 Population [Tiny(<50,000)/Small(50,000-200,000)/Medium(200,000-1,000,000)/Large(1,000,000-5,000,000)/Very Large(5,000,000-10,000,000)/Mega(>10,000,000)]
 Each city is mapped to a “bucket” for each attribute.
 User Input:
