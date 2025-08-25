@@ -1,39 +1,34 @@
-from Attributes import Attributes,create_values_list
-import re
-
+from Attributes import create_values_list
 
 def take_input(attribute):
     output = []
     value_list = create_values_list(attribute)
     value_string = ",".join(value_list)
-    value = input("How do you want your city to be: " + value_string +"\n")
-    match = re.findall(r"^(.*?)\(",value)
-    if len(match) == 1:
-        if match[0].strip().capitalize() in value_string:
-            output.append(match[0].strip().capitalize())
-        else:
-            print("Please enter exactly one of the choices")
-            return take_input(attribute)
-    
-    else:
-        for instence in value_list:
-            if value.strip().capitalize() in instence:
-                output.append(instence)
-        else:
-            print("Please enter one of the choices")
-            return take_input(attribute)
+    value = input("How do you want your city to be: " + value_string +"\n")  
+    for instence in value_list:
+        if value.strip().capitalize() in instence:
+            output.append(instence)
+            break
+    if len(output) == 0:    
+        print("Please enter one of the choices")
+        return take_input(attribute)
         
     output.append(take_importance())
+    print(" ".join(output))
     return output
 
     
 
 def take_importance():
     importance = input("How important is this attribute for you from 0-5, 0 being I dont care and 5 being absoulute must")
-    if int(importance) not in range (0,6):
+    try:
+        importance = int(importance)  
+        if importance not in range(0, 6):  
+            raise ValueError
+    except ValueError:
         print("Please enter a number between 0 and 5")
-        return take_importance()
-    else:
-        return int(importance)       
+        return take_importance()  
+
+    return str(importance)       
 
 
