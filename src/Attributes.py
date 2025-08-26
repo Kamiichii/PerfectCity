@@ -1,10 +1,10 @@
 from enum import Enum
 
 class Attributes(Enum):
-    AVERAGE_ANNUAL_TEMP = "temp"
-    YEARLY_RAINFALL = "rain"
-    AVERAGE_ANNUAL_CLEAR_DAYS = "clear"
-    POPULATION = "population"
+    AVERAGE_ANNUAL_TEMP = "AverageTemperature"
+    YEARLY_RAINFALL = "Rainfall"
+    AVERAGE_ANNUAL_CLEAR_DAYS = "Cloudiness"
+    POPULATION = "Population"
 
 
 def create_values_list(attribute):
@@ -20,10 +20,7 @@ def create_values_list(attribute):
         case _:
             raise Exception("Enter a proper Attributes.Enum value")
         
-def calculate_distance(input_value,internal_value,value_list):
-    input_index = value_list.index(input_value)
-    internal_value_index = value_list.index(internal_value)
-    return abs(input_index - internal_value_index)
+
 
              
                 
