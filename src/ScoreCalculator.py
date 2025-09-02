@@ -2,11 +2,11 @@ import csv
 from Attributes import create_values_list
 
 def calculate_all(attribute,input_value,importance_value,city_scores_dict):
-    with open("PerfectCity/data/CityAttributes.csv", newline="") as csvfile:
+    with open("./data/CityAttributes.csv", newline="") as csvfile:
         reader = csv.DictReader(csvfile)  
         for row in reader:
             city_name = row["City"]
-            attribute_value = row[attribute]
+            attribute_value = row[attribute.value]
             distance = calculate_distance(attribute,input_value,attribute_value)
             score=calculate_score(distance,importance_value)
             if city_name in city_scores_dict:
@@ -21,7 +21,8 @@ def calculate_distance(attribute,input_value,internal_value):
     return abs(input_index - internal_value_index)
 
 def calculate_score(distance,importance_value):
-    if (importance_value == 0):
+    importance = int(importance_value)
+    if (importance == 0):
         return 0
     else:
-        return distance * (2 ** importance_value)
+        return distance * (2 ** importance)

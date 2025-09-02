@@ -1,4 +1,12 @@
 from Attributes import create_values_list
+from ScoreCalculator import calculate_all
+
+def input_and_calculate(attribute,dict):
+    inputs = take_input(attribute)
+    value = inputs[0]
+    importance = inputs[1]
+    calculate_all(attribute,value,importance,dict)
+
 
 def take_input(attribute):
     output = []
@@ -14,7 +22,6 @@ def take_input(attribute):
         return take_input(attribute)
         
     output.append(take_importance())
-    print(" ".join(output))
     return output
 
     
