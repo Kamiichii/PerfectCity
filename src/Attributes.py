@@ -5,6 +5,7 @@ class Attributes(Enum):
     YEARLY_RAINFALL = "Rainfall"
     AVERAGE_ANNUAL_CLEAR_DAYS = "Cloudiness"
     POPULATION = "Population"
+    CONTINENT = "Continent"
 
 
 def create_values_list(attribute):
@@ -17,6 +18,8 @@ def create_values_list(attribute):
             return ["Verycloudy(0-20%)","Mostlycloudy(20-40%)","Balanced(40-60%)","Mostlyclear(60-80%)","Veryclear(>80%)"]
         case Attributes.POPULATION:
             return ["Tiny(<50.000)","Small(50.000-200.000)","Medium(200.000-1.000.000)","Large(1.000.000-5.000.000)","Verylarge(5.000.000-10.000.000)","Mega(>10.000.000)"]
+        case Attributes.CONTINENT:
+            return["Europe","Namerica","Samerica","Asia","Oceania","Africa"]
         case _:
             raise Exception("Enter a proper Attributes.Enum value")
         
