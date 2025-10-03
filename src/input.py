@@ -14,13 +14,15 @@ def take_input(attribute):
     value_string = ",".join(value_list)
     value = input("How do you want your city to be: " + value_string +"\n")  
     for instence in value_list:
+        if value.strip() == "":
+            print("Please enter one of the choices")
+            return take_input(attribute)
         if value.strip().capitalize() in instence:
             output.append(instence)
             break
     if len(output) == 0:    
         print("Please enter one of the choices")
-        return take_input(attribute)
-        
+        return take_input(attribute)      
     output.append(take_importance())
     return output
 
@@ -38,5 +40,13 @@ def take_importance():
 
     return str(importance)       
 
-
+def replay_question():
+    replay = input("Do you want to select new attributes y/n").strip().lower()
+    if replay in ("y","yes"):
+        return True
+    elif replay in ("n","no"):
+        return False
+    else:
+        print("Please type yes or no")
+        return replay_question()
 
