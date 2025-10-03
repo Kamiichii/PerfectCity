@@ -1,9 +1,10 @@
 from input import input_and_calculate,replay_question
 from Attributes import Attributes
 from colorama import Fore,Style,init
-
+init()
 
 def main():
+   
    replay = True
    while replay:
       city_scores_dict = {}
@@ -23,7 +24,5 @@ def main():
                color = Fore.RED
          print(f"{i}. {color}{city} {Style.RESET_ALL}")
       replay = replay_question()
-
    
-
 main()
