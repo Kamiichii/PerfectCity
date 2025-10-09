@@ -25,4 +25,7 @@ def use_ai(user_input,system_prompt):
     types.Content(role="user", parts=[types.Part(text=content)]),
     ]
     response = client.models.generate_content(model="gemini-2.0-flash-001", contents=_messages,config=types.GenerateContentConfig(system_instruction=system_prompt))
+    _messages += [
+    types.Content(role="model", parts=[types.Part(text=response.text)]),
+    ]
     print(response.text)
