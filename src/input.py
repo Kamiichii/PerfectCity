@@ -1,5 +1,6 @@
 from Attributes import create_values_list
 from ScoreCalculator import calculate_all
+from ai import create_system_prompt,use_ai
 
 def input_and_calculate(attribute,dict):
     inputs = take_input(attribute)
@@ -50,3 +51,21 @@ def replay_question():
         print("Please type yes or no")
         return replay_question()
 
+def ai_question(final_list):
+    ask_for_ai = input("Do you want to know more about these cities?")
+    if ask_for_ai.strip().lower() in ("yes","y"):
+        continue_using_ai = True
+        system_prompt = create_system_prompt(final_list)
+        user_input = input("Which city do you want to know more about")
+        use_ai(user_input=user_input,system_prompt=system_prompt)
+        while(continue_using_ai):
+            user_input = input("Type quit to exit ai or continue asking questions")
+            if user_input.strip().lower() in ("quit","q"):
+                continue_using_ai = False
+            else:
+                use_ai(user_input=user_input,system_prompt=system_prompt)
+    elif ask_for_ai.strip().lower() in ("no","n"):
+        print("I hope you enjoyed this app")
+    else:
+        print("Please enter yes or no")
+        ai_question(final_list)

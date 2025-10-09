@@ -1,4 +1,4 @@
-from input import input_and_calculate,replay_question
+from input import input_and_calculate,replay_question,ai_question
 from Attributes import Attributes
 from colorama import Fore,Style,init
 init()
@@ -7,6 +7,7 @@ init()
 def main():
    
    replay = True
+   final_list = []
    while replay:
       city_scores_dict = {}
       input_and_calculate(Attributes.AVERAGE_ANNUAL_TEMP,city_scores_dict) 
@@ -23,7 +24,10 @@ def main():
                color = Fore.YELLOW
          else:
                color = Fore.RED
-         print(f"{i}. {color}{city} {Style.RESET_ALL}")
+         colored_item = f"{i}. {color}{city} {Style.RESET_ALL}"
+         uncolored_item = f"{i}. {city}"
+         final_list.append(uncolored_item)
+         print(colored_item)
       replay = replay_question()
-   
+   ai_question("\n".join(final_list))
 main()
