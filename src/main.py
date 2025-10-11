@@ -3,6 +3,7 @@ from Attributes import Attributes
 from rich.table import Table
 from rich.console import Console
 
+#finish bar calculation logic
 def main():
    console = Console()
    replay = True

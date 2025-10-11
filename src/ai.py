@@ -20,7 +20,7 @@ def get_client():
 
 def ai_response_output(response):
     global _console
-    _console.print(Panel(response,title="City Description",border_style="magenta"))
+    _console.print(Panel(response,title="City Description",border_style="grey46"))
 
 
 def create_system_prompt(final_list): 
