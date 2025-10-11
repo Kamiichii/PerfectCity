@@ -40,7 +40,7 @@ def take_input(attribute):
     
 
 def take_importance():
-    importance = input("How important is this attribute for you from 0-5, 0 being I dont care and 5 being absoulute must")
+    importance = input("How important is this attribute for you from 0-5, 0 being I dont care and 5 being absoulute must\n")
     try:
         importance = int(importance)  
         if importance not in range(0, 6):  
@@ -52,7 +52,7 @@ def take_importance():
     return str(importance)       
 
 def replay_question():
-    replay = input("Do you want to select new attributes y/n").strip().lower()
+    replay = input("Do you want to select new attributes y/n\n").strip().lower()
     if replay in ("y","yes"):
         return True
     elif replay in ("n","no"):
@@ -62,14 +62,14 @@ def replay_question():
         return replay_question()
 
 def ai_question(final_list):
-    ask_for_ai = input("Do you want to know more about these cities?")
+    ask_for_ai = input("Do you want to know more about these cities?\n")
     if ask_for_ai.strip().lower() in ("yes","y"):
         continue_using_ai = True
         system_prompt = create_system_prompt(final_list)
-        user_input = input("Which city do you want to know more about")
+        user_input = input("Which city do you want to know more about\n")
         use_ai(user_input=user_input,system_prompt=system_prompt)
         while(continue_using_ai):
-            user_input = input("Type quit to exit ai or continue asking questions")
+            user_input = input("Type quit to exit ai or continue asking questions\n")
             if user_input.strip().lower() in ("quit","q"):
                 continue_using_ai = False
             else:
