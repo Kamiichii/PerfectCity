@@ -1,6 +1,8 @@
 from Attributes import create_values_list
 from ScoreCalculator import calculate_all
 from ai import create_system_prompt,use_ai
+from colorama import Fore,Style,init
+init()
 
 def input_and_calculate(attribute,dict):
     inputs = take_input(attribute)
@@ -11,18 +13,26 @@ def input_and_calculate(attribute,dict):
 
 def take_input(attribute):
     output = []
-    value_list = create_values_list(attribute)
-    value_string = ",".join(value_list)
-    value = input("How do you want your city to be: " + value_string +"\n")  
-    for instence in value_list:
+    value_dict = {}
+    shown_list = []
+    for i, item in enumerate(create_values_list(attribute),start=1):
+        shown_list.append(f"{i}: {item}")
+        value_dict[i] = item
+    value_string = "\n".join(shown_list)
+    value = input("How do you want your city to be:\n" + value_string +"\n")  
+    for i,city in value_dict.items():
         if value.strip() == "":
-            print("Please enter one of the choices")
+            print(f"{Fore.RED}Please enter one of the choices{Style.RESET_ALL}")
             return take_input(attribute)
-        if value.strip().capitalize() in instence:
-            output.append(instence)
-            break
+        if value.isdigit():
+            if int(value) == i:
+                output.append(value_dict[i])
+                break
+        elif value.strip().capitalize() in city:
+                output.append(city)
+                break
     if len(output) == 0:    
-        print("Please enter one of the choices")
+        print(f"{Fore.RED}Please enter one of the choices{Style.RESET_ALL}")
         return take_input(attribute)      
     output.append(take_importance())
     return output

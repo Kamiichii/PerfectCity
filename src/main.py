@@ -2,10 +2,15 @@ from input import input_and_calculate,replay_question,ai_question
 from Attributes import Attributes
 from colorama import Fore,Style,init
 init()
+from rich.table import Table
+
 
 
 def main():
-   
+   print("\n" + "="*60)
+   print(f"{Fore.BLUE}Perfect City{Style.RESET_ALL}")
+   print("="*60 + "\n")
+
    replay = True
    final_list = []
    while replay:
