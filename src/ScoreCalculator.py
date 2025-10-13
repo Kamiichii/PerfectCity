@@ -31,11 +31,3 @@ def calculate_score(distance,importance_value):
         return 0   
     else:
         return distance * (3 ** importance)
-
-def calculate_score_bar(score):
-    number_of_attributes=len(Attributes)
-    worst_score = number_of_attributes * (4 * (3 ** 5))
-    single_bar = worst_score / 10
-    new_score = worst_score - score
-    number_of_bars = new_score//single_bar
-    return number_of_bars

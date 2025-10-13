@@ -15,14 +15,13 @@ def main():
       input_and_calculate(Attributes.AVERAGE_ANNUAL_CLEAR_DAYS,city_scores_dict)
       input_and_calculate(Attributes.POPULATION,city_scores_dict)
       input_and_calculate(Attributes.CONTINENT,city_scores_dict)
-      sorted_dict = dict(sorted(city_scores_dict.items(),key=lambda item: item[1]))
-      top10 =list(sorted_dict)[:10]
+      top10 = sorted(city_scores_dict.items(),key=lambda item: item[1])[:10]
       table = Table(title="Top 10 City Recommendations")
       table.add_column("Rank", justify="center", style="bold cyan")
-      table.add_column("City", style="bold yellow")
+      table.add_column("City",style="bold")
       for i, city in enumerate(top10,start=1):
          color = "green" if i <= 3 else "yellow" if i <= 7 else "red"
-         table.add_row(str(i), f"[{color}]{city}[/{color}]")
+         table.add_row(str(i), f"[{color}]{city[0]}[/{color}]")
          item_for_ai_list = f"{i}. {city}"
          ai_list.append(item_for_ai_list)
       console.print(table)
