@@ -3,18 +3,18 @@ from Attributes import Attributes
 from rich.table import Table
 from rich.console import Console
 
-#finish bar calculation logic
 def main():
    console = Console()
    replay = True
    ai_list = []
+   path = "./data/CityAttributes.csv"
    while replay:
       city_scores_dict = {}
-      input_and_calculate(Attributes.AVERAGE_ANNUAL_TEMP,city_scores_dict) 
-      input_and_calculate(Attributes.YEARLY_RAINFALL,city_scores_dict)
-      input_and_calculate(Attributes.AVERAGE_ANNUAL_CLEAR_DAYS,city_scores_dict)
-      input_and_calculate(Attributes.POPULATION,city_scores_dict)
-      input_and_calculate(Attributes.CONTINENT,city_scores_dict)
+      input_and_calculate(Attributes.AVERAGE_ANNUAL_TEMP,city_scores_dict,path) 
+      input_and_calculate(Attributes.YEARLY_RAINFALL,city_scores_dict,path)
+      input_and_calculate(Attributes.AVERAGE_ANNUAL_CLEAR_DAYS,city_scores_dict,path)
+      input_and_calculate(Attributes.POPULATION,city_scores_dict,path)
+      input_and_calculate(Attributes.CONTINENT,city_scores_dict,path)
       top10 = sorted(city_scores_dict.items(),key=lambda item: item[1])[:10]
       table = Table(title="Top 10 City Recommendations")
       table.add_column("Rank", justify="center", style="bold cyan")

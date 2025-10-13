@@ -4,11 +4,11 @@ from ai import create_system_prompt,use_ai
 from colorama import Fore,Style,init
 init()
 
-def input_and_calculate(attribute,dict):
+def input_and_calculate(attribute,dict,path):
     inputs = take_input(attribute)
     value = inputs[0]
     importance = inputs[1]
-    calculate_all(attribute,value,importance,dict)
+    calculate_all(attribute=attribute,input_value=value,importance_value=importance,city_scores_dict=dict,path=path)
 
 
 def take_input(attribute):
@@ -20,7 +20,7 @@ def take_input(attribute):
         value_dict[i] = item
     value_string = "\n".join(shown_list)
     value = input("How do you want your city to be:\n" + value_string +"\n")  
-    for i,city in value_dict.items():
+    for i,att_val in value_dict.items():
         if value.strip() == "":
             print(f"{Fore.RED}Please enter one of the choices{Style.RESET_ALL}")
             return take_input(attribute)
@@ -28,8 +28,8 @@ def take_input(attribute):
             if int(value) == i:
                 output.append(value_dict[i])
                 break
-        elif value.strip().capitalize() in city:
-                output.append(city)
+        elif value.strip().capitalize() in att_val:
+                output.append(att_val)
                 break
     if len(output) == 0:    
         print(f"{Fore.RED}Please enter one of the choices{Style.RESET_ALL}")
@@ -49,7 +49,7 @@ def take_importance():
         print("Please enter a number between 0 and 5")
         return take_importance()  
 
-    return str(importance)       
+    return importance       
 
 def replay_question():
     replay = input("Do you want to select new attributes y/n\n").strip().lower()

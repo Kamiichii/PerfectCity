@@ -1,8 +1,8 @@
 import csv
 from Attributes import create_values_list,Attributes
 
-def calculate_all(attribute,input_value,importance_value,city_scores_dict):
-    with open("./data/CityAttributes.csv", newline="") as csvfile:
+def calculate_all(attribute,input_value,importance_value,city_scores_dict,path):
+    with open(path, newline="") as csvfile:
         reader = csv.DictReader(csvfile)  
         for row in reader:
             city_name = row["City"]
@@ -26,7 +26,7 @@ def calculate_distance(attribute,input_value,internal_value):
     return distance
 
 def calculate_score(distance,importance_value):
-    importance = int(importance_value)
+    importance = importance_value
     if (importance == 0):
         return 0   
     else:
