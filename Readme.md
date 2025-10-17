@@ -4,7 +4,7 @@ A terminal-based Python app that helps users find the best cities to live in bas
 
 ## How to run
 
-1-Download and install python3
+1-Download and install python3 then install rich and colorama modules for it
 ##
 2-Create an account on Google AI Studio
 ##
