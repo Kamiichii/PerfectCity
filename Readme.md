@@ -18,8 +18,8 @@ A terminal-based Python app that helps users find the best cities to live in bas
 6-Type `./start.sh` to the console while in the root directory of the project.
 
 ### How does it work
-<p>The program asks you for your preferences on certain set attributes and the importance this attribute has for you. After entering all of your preferences<br>
-program gives you a top 10 list of the cities in its database that fits with your preferences. If you dont like the list you can just answer yes when the<br>
-program asks you if you want to select new attributes. If you feel good about the list and you want to know more about a city in the list you can say yes<br>
-to the next question and the program will give you a description about the city you want to know more about using gemini ai. When you feel satisfied you<br>
+<p>The program asks you for your preferences on certain set attributes and the importance this attribute has for you. After entering all of your preferences
+program gives you a top 10 list of the cities in its database that fits with your preferences. If you dont like the list you can just answer yes when the
+program asks you if you want to select new attributes. If you feel good about the list and you want to know more about a city in the list you can say yes
+to the next question and the program will give you a description about the city you want to know more about using gemini ai. When you feel satisfied you
 can type quit to close the program.</p>
