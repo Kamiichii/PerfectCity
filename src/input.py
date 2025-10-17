@@ -36,9 +36,7 @@ def take_input(attribute):
         return take_input(attribute)      
     output.append(take_importance())
     return output
-
-    
-
+  
 def take_importance():
     importance = input("How important is this attribute for you from 0-5, 0 being I dont care and 5 being absoulute must\n")
     try:
