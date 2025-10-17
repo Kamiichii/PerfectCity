@@ -5,11 +5,16 @@ A terminal-based Python app that helps users find the best cities to live in bas
 ## How to run
 
 1-Download and install python3
+##
 2-Create an account on Google AI Studio
+##
 3-Click the Create API Key button in get api key section
+##
 4-Create a file and name it .env in the root of this project and write this in it:
   GEMINI_API_KEY= Your API key
+##
 5-Put the API key google gave you instead of the your api key part
+##
 6-Type `./start.sh` to the console while in the root directory of the project.
 
 ### How does it work
